@@ -1,7 +1,7 @@
 
 export const declaracionDeFe = {
   "Introducción": {
-    "texto": "Las Sagradas Escrituras constituyen nuestra suficiente regla de fe y conducta. En ellas fundamentamos nuestra creencia en Dios. Por lo tanto, las declaraciones de verdades fundamentales que siguen, extraídas del Libro Sagrado "La Biblia", son tenidas por base de nuestra fe y comunión cristiana."
+    "texto": "Las Sagradas Escrituras constituyen nuestra suficiente regla de fe y conducta. En ellas fundamentamos nuestra creencia en Dios. Por lo tanto, las declaraciones de verdades fundamentales que siguen, extraídas del Libro Sagrado \"La Biblia\", son tenidas por base de nuestra fe y comunión cristiana."
   },
   "Sección A": {
     "Las Sagradas Escrituras": {
@@ -10,7 +10,7 @@ export const declaracionDeFe = {
   },
   "Sección B": {
     "El Dios único y verdadero": {
-      "texto": "Se ha revelado como el Todopoderoso Creador del Universo, quien al manifestarse como "Yo Soy", es en sí mismo el Eterno. En su revelación, al ser una UNIDAD de personas, se presenta como UNO, aunque existe eternamente en tres personas, a saber: el Padre, el Hijo y el Espíritu Santo, una TRINIDAD."
+      "texto": "Se ha revelado como el Todopoderoso Creador del Universo, quien al manifestarse como \"Yo Soy\", es en sí mismo el Eterno. En su revelación, al ser una UNIDAD de personas, se presenta como UNO, aunque existe eternamente en tres personas, a saber: el Padre, el Hijo y el Espíritu Santo, una TRINIDAD."
     },
     "La Adorable Deidad": {
       "texto": "Esta grandiosa y misericordiosa Deidad está compuesta por tres personas, de ahí que hablemos de Tres Personas distintas y un solo Dios verdadero. Tanto el vocablo trinidad como personas no se encuentran en las Sagradas Escrituras, pero son términos que están implícitos en ella y que la Iglesia Cristiana los adoptó para definir su conocimiento de Dios, y los mismos guardan armonía con la Palabra de Dios."
@@ -20,7 +20,7 @@ export const declaracionDeFe = {
     },
     "La Trinidad": {
       "A. El Padre": {
-        "texto": "Padre (Pater) - Designa la primera persona de la Trinidad. Nombre que describe a Dios como el originador de todas las cosas y aún de los seres humanos. El Hacedor se da a conocer en una relación de amor para con sus hijos, los hombres. Esta expresión paternal de amor en Dios llega a su plenitud al entregar a Jesucristo su Hijo al sacrificio en la cruz para la salvación del hombre, constituyendo a aquellos que mediante la fe le acepten, en "hijos de Dios"."
+        "texto": "Padre (Pater) - Designa la primera persona de la Trinidad. Nombre que describe a Dios como el originador de todas las cosas y aún de los seres humanos. El Hacedor se da a conocer en una relación de amor para con sus hijos, los hombres. Esta expresión paternal de amor en Dios llega a su plenitud al entregar a Jesucristo su Hijo al sacrificio en la cruz para la salvación del hombre, constituyendo a aquellos que mediante la fe le acepten, en \"hijos de Dios\"."
       }
     }
   },
