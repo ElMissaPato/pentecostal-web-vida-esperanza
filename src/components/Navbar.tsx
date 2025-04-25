@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X, Church } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -40,23 +40,27 @@ const Navbar = () => {
       }`}
     >
       <nav className="container flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2">
-          <Church className="h-8 w-8 text-primary" strokeWidth={1.5} />
-          <span className="font-serif font-bold text-lg md:text-xl">
+        <Link to="/" className="flex items-center gap-3">
+          <img 
+            src="/lovable-uploads/318718c9-7b11-47a7-8e74-698ed0a56bce.png" 
+            alt="IDPMI Logo" 
+            className="h-12 w-12 object-contain"
+          />
+          <span className="font-display text-xl">
             <span className="text-primary">IDPMI</span>
-            <span className="text-sm font-normal block -mt-1 text-gray-600">
+            <span className="text-sm font-sans block -mt-1 text-secondary">
               Región Nor-Centro
             </span>
           </span>
         </Link>
         
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-6">
+        <div className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
             <Link
               key={item.name}
               to={item.path}
-              className="font-medium text-gray-700 hover:text-primary transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary hover:after:w-full after:transition-all after:duration-300"
+              className="font-display text-lg text-primary hover:text-secondary transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-secondary hover:after:w-full after:transition-all after:duration-300"
             >
               {item.name}
             </Link>
@@ -65,7 +69,7 @@ const Navbar = () => {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-gray-700 focus:outline-none"
+          className="md:hidden text-primary focus:outline-none"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? (
@@ -83,7 +87,7 @@ const Navbar = () => {
                 <Link
                   key={item.name}
                   to={item.path}
-                  className="font-medium text-gray-700 hover:text-primary transition-colors"
+                  className="font-display text-lg text-primary hover:text-secondary transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.name}
