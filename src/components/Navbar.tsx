@@ -28,7 +28,9 @@ const Navbar = () => {
     { name: "Quiénes Somos", path: "/quienes-somos" },
     { name: "Declaración de Fe", path: "/declaracion-de-fe" },
     { name: "Distritos", path: "/distritos" },
-    { name: "Iglesias", path: "/iglesias" },
+    { name: "Asociaciones", path: "/asociaciones" },
+    { name: "Departamentos", path: "/departamentos" },
+    { name: "Comité Regional", path: "/comite" },
   ];
 
   return (
