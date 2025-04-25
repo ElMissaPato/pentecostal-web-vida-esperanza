@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -19,9 +20,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Nunito', 'sans-serif'],
-        serif: ['Lora', 'serif'],
-        display: ['Architects Daughter', 'cursive'],
+        sans: ['Poppins', 'sans-serif'],
+        serif: ['Playfair Display', 'serif'],
+        display: ['Great Vibes', 'cursive'],
       },
       colors: {
         border: 'hsl(var(--border))',
@@ -30,14 +31,14 @@ export default {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         primary: {
-          DEFAULT: '#2B4C8C',
-          light: '#3B62B0',
-          dark: '#1A365D'
+          DEFAULT: '#6047AA',
+          light: '#8972BF',
+          dark: '#4A378D'
         },
         secondary: {
-          DEFAULT: '#CC1E1E',
-          light: '#E63946',
-          dark: '#AB1313'
+          DEFAULT: '#B76E00',
+          light: '#E08700',
+          dark: '#8F5500'
         },
         accent: {
           DEFAULT: '#34A853',
@@ -118,6 +119,22 @@ export default {
           '100%': {
             transform: 'translateX(0)'
           }
+        },
+        'float': {
+          '0%, 100%': {
+            transform: 'translateY(0)'
+          },
+          '50%': {
+            transform: 'translateY(-10px)'
+          }
+        },
+        'pulse-slow': {
+          '0%, 100%': {
+            opacity: 1
+          },
+          '50%': {
+            opacity: 0.8
+          }
         }
       },
       animation: {
@@ -125,7 +142,9 @@ export default {
         'accordion-up': 'accordion-up 0.2s ease-out',
         'fade-in-down': 'fade-in-down 0.5s ease-out forwards',
         'fade-in': 'fade-in 0.5s ease-out forwards',
-        'slide-in': 'slide-in 0.5s ease-out forwards'
+        'slide-in': 'slide-in 0.5s ease-out forwards',
+        'float': 'float 6s ease-in-out infinite',
+        'pulse-slow': 'pulse-slow 4s ease-in-out infinite'
       }
     }
   },

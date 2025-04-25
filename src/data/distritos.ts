@@ -42,80 +42,155 @@ export const distritos: DistritoMap = {
           lat: 28.6329,
           lng: -106.1202
         }
-      }
-    ]
-  },
-  "CIUDAD JUAREZ": {
-    "Presbitero": "Samuel Rodriguez",
-    "Churchs": [
+      },
       {
-        "Pastor": "Samuel Rodriguez Flores",
+        "Pastor": "Isabel Cristina Morales Gonzales",
         "Type": "Iglesia Organizada",
-        "Location": "Calle Libertad #123 Col. Centro, Ciudad Juárez",
-        "Name": "Puerta del Cielo",
+        "Location": "c.43 # 15711 Col. Nuevo Triunfo Chihuahua",
+        "Name": "Betania",
         "coordinates": {
-          lat: 31.7389,
-          lng: -106.4858
+          lat: 28.6420,
+          lng: -106.1150
         }
       },
       {
-        "Pastor": "Roberto Méndez García",
+        "Pastor": "Abraham Beltrán Méndez",
         "Type": "Iglesia Organizada",
-        "Location": "Av. Tecnológico #567 Col. Fuentes, Ciudad Juárez",
-        "Name": "Monte de Sión",
+        "Location": "c. Tanzanita y Granate Santa Eulalia, Chihuahua",
+        "Name": "Sermón del Monte",
         "coordinates": {
-          lat: 31.7205,
-          lng: -106.4596
+          lat: 28.6245,
+          lng: -106.0950
+        }
+      },
+      {
+        "Pastor": "Jorge Luis López Chaparro",
+        "Type": "Iglesia Organizada",
+        "Location": "C. Donato Guerra #2209 Col. Obrera, Chihuahua",
+        "Name": "Casa de Dios",
+        "coordinates": {
+          lat: 28.6368,
+          lng: -106.0766
         }
       }
     ]
   },
-  "MONTERREY": {
-    "Presbitero": "Juan Martínez",
+  "DELICIAS SAUCILLO": {
+    "Presbitero": "Daniel Delgado",
     "Churchs": [
       {
-        "Pastor": "Juan Martínez Rodríguez",
+        "Pastor": "Daniel Delgado Torres",
         "Type": "Iglesia Organizada",
-        "Location": "Av. Constitución #890 Col. Centro, Monterrey",
-        "Name": "Roca Eterna",
-        "coordinates": {
-          lat: 25.6866,
-          lng: -100.3161
-        }
-      },
-      {
-        "Pastor": "Carlos Gómez Pérez",
-        "Type": "Misión",
-        "Location": "Calle Reforma #456 Col. Industrial, Monterrey",
+        "Location": "Puerto del Toro Saucillo Chihuahua",
         "Name": "Manantial de Vida",
         "coordinates": {
-          lat: 25.7040,
-          lng: -100.3211
+          lat: 28.0293,
+          lng: -105.2985
+        }
+      },
+      {
+        "Pastor": "Daniel Delgado Torres",
+        "Type": "Campo Blanco",
+        "Location": "Pueblito de allende, Chih.",
+        "Name": "",
+        "coordinates": {
+          lat: 28.1200,
+          lng: -105.4000
+        }
+      },
+      {
+        "Pastor": "Eduardo de la Rosa Hernández",
+        "Type": "Misión",
+        "Location": "c. Durango y Av. Chihuahua S/N Saucillo Chih",
+        "Name": "Casa de Oración",
+        "coordinates": {
+          lat: 28.0254,
+          lng: -105.3029
         }
       }
     ]
   },
-  "TORREÓN": {
-    "Presbitero": "Raúl Hernández",
+  "DURANGO": {
+    "Presbitero": "Roberto Aros",
     "Churchs": [
       {
-        "Pastor": "Raúl Hernández López",
-        "Type": "Iglesia Organizada",
-        "Location": "Blvd. Independencia #1234 Col. Centro, Torreón",
-        "Name": "Faro de Luz",
+        "Pastor": "Roberto Aros Chávez",
+        "Type": "Misión",
+        "Location": "Col. Centro Santa María del Oro Durango",
+        "Name": "Ríos de agua Viva",
         "coordinates": {
-          lat: 25.5428,
-          lng: -103.4068
+          lat: 25.9444,
+          lng: -105.3689
         }
       },
       {
-        "Pastor": "Miguel Torres Sánchez",
+        "Pastor": "Rolando Gutiérrez Larrañaga",
         "Type": "Iglesia Organizada",
-        "Location": "Calle Morelos #789 Col. Las Margaritas, Torreón",
-        "Name": "Gracia y Verdad",
+        "Location": "Col. San Ignacio Gómez Palacio Durango",
+        "Name": "Tabernáculo de reunión",
         "coordinates": {
-          lat: 25.5350,
-          lng: -103.4200
+          lat: 25.5694,
+          lng: -103.4878
+        }
+      }
+    ]
+  },
+  "JUAN ALDAMA ZAC": {
+    "Presbitero": "Camila Arzola",
+    "Churchs": [
+      {
+        "Pastor": "Camila Arzola Ramos",
+        "Type": "Iglesia Organizada",
+        "Location": "Salome Canales #3 Col. Centro Juan Aldama Zac.",
+        "Name": "Pueblo de Dios",
+        "coordinates": {
+          lat: 24.2833,
+          lng: -103.4000
+        }
+      },
+      {
+        "Pastor": "Miguel Antonio Zúñiga Guzmán",
+        "Type": "Iglesia Organizada",
+        "Location": "Idelfonso valenciana #29 juan Aldama Zac.",
+        "Name": "Eben – Ezer",
+        "coordinates": {
+          lat: 24.2820,
+          lng: -103.3950
+        }
+      }
+    ]
+  },
+  "SIERRA TARAHUMARA": {
+    "Presbitero": "Ernesto Moreno",
+    "Churchs": [
+      {
+        "Pastor": "Ernesto Moreno Castro",
+        "Type": "Misión",
+        "Location": "Napuchi Municipio de Guachochi chihuahua",
+        "Name": "Los Napuchis",
+        "coordinates": {
+          lat: 26.8203,
+          lng: -107.0694
+        }
+      },
+      {
+        "Pastor": "Ernesto Moreno Castro",
+        "Type": "Campo Blanco",
+        "Location": "Samachique, Municipio de Guachochi Chihuahua.",
+        "Name": "Samachique",
+        "coordinates": {
+          lat: 27.2981,
+          lng: -107.5469
+        }
+      },
+      {
+        "Pastor": "Fabian Gonzalez",
+        "Type": "Iglesia Organizada",
+        "Location": "Rejogochi municipio de Guachochi chihuahua",
+        "Name": "Rejogochi",
+        "coordinates": {
+          lat: 27.1500,
+          lng: -107.2500
         }
       }
     ]

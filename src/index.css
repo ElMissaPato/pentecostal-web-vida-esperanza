@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Poppins:wght@300;400;500;600;700&family=Great+Vibes&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -16,11 +16,11 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 255 60% 47%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 35 100% 36%;
+    --secondary-foreground: 0 0% 100%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
@@ -123,5 +123,49 @@
   
   .hover-scale {
     @apply transition-transform duration-300 ease-in-out hover:scale-105;
+  }
+  
+  .card-fancy {
+    @apply relative overflow-hidden rounded-lg p-6 bg-white shadow-xl border border-gray-100;
+  }
+  
+  .card-fancy::before {
+    @apply content-[''] absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-secondary;
+  }
+  
+  .card-fancy:hover {
+    @apply shadow-2xl transform -translate-y-1 transition-all duration-300;
+  }
+  
+  .btn-fancy {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-full bg-gradient-to-r from-primary to-secondary text-white font-medium transition-all duration-300 shadow-md hover:shadow-lg hover:from-primary-dark hover:to-secondary-dark;
+  }
+  
+  .heading-underline {
+    @apply relative pb-3;
+  }
+  
+  .heading-underline::after {
+    @apply content-[''] absolute bottom-0 left-0 h-1 w-20 bg-gradient-to-r from-primary to-secondary;
+  }
+  
+  .heading-underline-center::after {
+    @apply left-1/2 -translate-x-1/2;
+  }
+  
+  .fancy-link {
+    @apply relative text-primary inline-block after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-secondary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left;
+  }
+  
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-md shadow-lg border border-gray-100 rounded-lg;
+  }
+  
+  .gradient-border {
+    @apply relative p-[1px] rounded-lg bg-gradient-to-r from-primary via-purple-400 to-secondary;
+  }
+  
+  .gradient-border > div {
+    @apply bg-white rounded-lg p-6;
   }
 }

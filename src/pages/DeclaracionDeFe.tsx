@@ -1,28 +1,90 @@
 
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { Book } from "lucide-react";
+import { Book, ChevronDown, ChevronRight } from "lucide-react";
 import { 
   Accordion, 
   AccordionContent, 
   AccordionItem, 
   AccordionTrigger 
 } from "@/components/ui/accordion";
+import { declaracionDeFe } from "../data/declaracionDeFe";
 
 const DeclaracionDeFe = () => {
+  const [activeSection, setActiveSection] = useState<string | null>(null);
+
+  const handleSectionClick = (section: string) => {
+    setActiveSection(activeSection === section ? null : section);
+  };
+
+  const renderSection = (sectionKey: string, sectionData: any, depth = 0) => {
+    // Skip 'texto' keys as they are rendered with their parent
+    if (sectionKey === 'texto') return null;
+
+    const isObject = typeof sectionData === 'object' && sectionData !== null;
+    const hasNestedContent = isObject && Object.keys(sectionData).some(key => key !== 'texto');
+    
+    const contentClass = depth === 0 
+      ? "mb-8 glass-card" 
+      : depth === 1 
+        ? "mb-4 pl-4 border-l-2 border-primary/20" 
+        : "mb-2 pl-4 border-l border-gray-200";
+    
+    const titleClass = depth === 0 
+      ? "text-2xl font-serif font-bold mb-3 text-primary" 
+      : depth === 1 
+        ? "text-xl font-medium mb-2 text-gray-800" 
+        : "text-lg font-medium mb-1 text-gray-700";
+    
+    return (
+      <div key={sectionKey} className={contentClass}>
+        {/* Section header */}
+        <div 
+          className={`flex items-center justify-between cursor-pointer py-3 px-5 ${hasNestedContent ? 'hover:bg-gray-50' : ''}`}
+          onClick={() => hasNestedContent && handleSectionClick(`${sectionKey}-${depth}`)}
+        >
+          <h3 className={titleClass}>{sectionKey}</h3>
+          {hasNestedContent && (
+            activeSection === `${sectionKey}-${depth}` 
+              ? <ChevronDown className="h-5 w-5 text-primary" /> 
+              : <ChevronRight className="h-5 w-5 text-gray-400" />
+          )}
+        </div>
+        
+        {/* Section text if available */}
+        {isObject && sectionData.texto && (
+          <div className="px-5 py-3 text-gray-600 bg-gray-50/50 border-t border-gray-100">
+            <p>{sectionData.texto}</p>
+          </div>
+        )}
+        
+        {/* Nested sections */}
+        {isObject && hasNestedContent && activeSection === `${sectionKey}-${depth}` && (
+          <div className="p-4">
+            {Object.entries(sectionData)
+              .filter(([key]) => key !== 'texto')
+              .map(([key, value]) => renderSection(key, value, depth + 1))}
+          </div>
+        )}
+      </div>
+    );
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-grow pt-24 pb-16">
         {/* Header with overlay */}
-        <div className="relative bg-gray-900 py-20 mb-12">
+        <div className="relative bg-gradient-to-r from-primary to-secondary py-20 mb-12">
           <div className="absolute inset-0 z-0 bg-[url('https://images.unsplash.com/photo-1506744038136-46273834b3fb')] bg-cover opacity-20 mix-blend-overlay"></div>
           <div className="container relative z-10">
             <div className="max-w-3xl mx-auto text-center">
-              <Book className="h-16 w-16 text-primary-light mx-auto mb-4" strokeWidth={1.5} />
-              <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Declaración de Fe</h1>
-              <p className="text-xl text-gray-300">
+              <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4">
+                <Book className="h-10 w-10 text-white" strokeWidth={1.5} />
+              </div>
+              <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 font-serif">Declaración de Fe</h1>
+              <p className="text-xl text-white/90 font-light">
                 Nuestras creencias fundamentadas en las Sagradas Escrituras
               </p>
             </div>
@@ -31,79 +93,20 @@ const DeclaracionDeFe = () => {
 
         {/* Content */}
         <div className="container">
-          <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-8 animate-fade-in">
-            <h2 className="text-3xl font-bold mb-8 text-center gradient-text">
+          <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-xl p-8 animate-fade-in">
+            <h2 className="text-3xl font-bold mb-8 text-center gradient-text heading-underline heading-underline-center">
               Fundamentos de Nuestra Fe
             </h2>
 
-            <div className="mb-10 p-6 bg-primary/5 rounded-lg border border-primary/20">
+            <div className="mb-10 p-6 bg-amber-50 border-l-4 border-amber-400 rounded-lg">
               <p className="italic text-lg text-gray-700">
                 "Las Sagradas Escrituras constituyen nuestra suficiente regla de fe y conducta. En ellas fundamentamos nuestra creencia en Dios. Por lo tanto, las declaraciones de verdades fundamentales que siguen, extraídas del Libro Sagrado "La Biblia", son tenidas por base de nuestra fe y comunión cristiana."
               </p>
             </div>
 
-            <Accordion type="single" collapsible className="w-full">
-              <AccordionItem value="seccion-a">
-                <AccordionTrigger className="text-xl font-semibold py-4">
-                  Las Sagradas Escrituras
-                </AccordionTrigger>
-                <AccordionContent className="text-gray-700 leading-relaxed py-4 px-2">
-                  <p className="mb-4">
-                    La Biblia, los sesenta y seis libros del Antiguo y Nuevo Testamento, son verdaderamente inspirados por Dios, sin error en sus escritos originales y que son la autoridad suprema y final de fe y conducta.
-                  </p>
-                  <p>
-                    Entendemos por inspiración la influencia que Dios, Espíritu Santo, ejerció sobre cada escritor de las Sagradas Escrituras sin impedir la participación del intelecto humano en la comunicación de la verdad sagrada.
-                  </p>
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem value="seccion-b1">
-                <AccordionTrigger className="text-xl font-semibold py-4">
-                  El Dios único y verdadero
-                </AccordionTrigger>
-                <AccordionContent className="text-gray-700 leading-relaxed py-4 px-2">
-                  <p>
-                    Se ha revelado como el Todopoderoso Creador del Universo, quien al manifestarse como "Yo Soy", es en sí mismo el Eterno. En su revelación, al ser una UNIDAD de personas, se presenta como UNO, aunque existe eternamente en tres personas, a saber: el Padre, el Hijo y el Espíritu Santo, una TRINIDAD.
-                  </p>
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem value="seccion-b2">
-                <AccordionTrigger className="text-xl font-semibold py-4">
-                  La Adorable Deidad
-                </AccordionTrigger>
-                <AccordionContent className="text-gray-700 leading-relaxed py-4 px-2">
-                  <p>
-                    Esta grandiosa y misericordiosa Deidad está compuesta por tres personas, de ahí que hablemos de Tres Personas distintas y un solo Dios verdadero. Tanto el vocablo trinidad como personas no se encuentran en las Sagradas Escrituras, pero son términos que están implícitos en ella y que la Iglesia Cristiana los adoptó para definir su conocimiento de Dios, y los mismos guardan armonía con la Palabra de Dios.
-                  </p>
-                  <p className="mt-4">
-                    Cuando hablamos de la Trinidad nos estamos refiriendo a la composición de la Deidad en tres personas. Por persona significamos subsistencia, indicando que Dios es en tres subsistencias, revelado en las Escrituras como Padre, Hijo y Espíritu Santo. Por subsistencia, significamos la forma propia de ser de Dios. Así pues, Dios es en tres formas propias, cada una en particular poseyendo los atributos que definen la personalidad, a saber: pensamiento, voluntad y sentimiento.
-                  </p>
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem value="seccion-b3">
-                <AccordionTrigger className="text-xl font-semibold py-4">
-                  Distinción y relación en la Deidad
-                </AccordionTrigger>
-                <AccordionContent className="text-gray-700 leading-relaxed py-4 px-2">
-                  <p>
-                    En el Nuevo Testamento encontramos la encarnación del Hijo en Jesús de Nazareth y la Escritura afirma que ese milagro es obra y gracia del Espíritu Santo. Evidenciando esto, que Dios es uno, pero también trino, dándose en la relación de Padre, Hijo y Espíritu Santo, como puede comprobarse en el bautismo de nuestro Señor Jesucristo.
-                  </p>
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem value="seccion-b4">
-                <AccordionTrigger className="text-xl font-semibold py-4">
-                  El Padre
-                </AccordionTrigger>
-                <AccordionContent className="text-gray-700 leading-relaxed py-4 px-2">
-                  <p>
-                    Padre (Pater) - Designa la primera persona de la Trinidad. Nombre que describe a Dios como el originador de todas las cosas y aún de los seres humanos. El Hacedor se da a conocer en una relación de amor para con sus hijos, los hombres. Esta expresión paternal de amor en Dios llega a su plenitud al entregar a Jesucristo su Hijo al sacrificio en la cruz para la salvación del hombre, constituyendo a aquellos que mediante la fe le acepten, en "hijos de Dios".
-                  </p>
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
+            <div className="space-y-6">
+              {Object.entries(declaracionDeFe).map(([key, value]) => renderSection(key, value))}
+            </div>
           </div>
         </div>
       </main>
