@@ -33,9 +33,9 @@ const Navbar = () => {
 
   return (
     <header
-      className={`fixed w-full z-50 transition-all duration-300 ${
+      className={`fixed w-full z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-gradient-to-r from-primary/95 to-secondary/95 backdrop-blur-sm shadow-lg py-2"
+          ? "bg-white/95 backdrop-blur-sm shadow-md py-2"
           : "bg-transparent py-4"
       }`}
     >
@@ -46,25 +46,29 @@ const Navbar = () => {
             alt="IDPMI Logo" 
             className="h-16 w-16 object-contain"
           />
-          <span className="font-display text-xl">
-            <span className={`${scrolled ? "text-white" : "text-primary"} text-xl md:text-2xl font-bold`}>
+          <div className="flex flex-col">
+            <span className={`font-display text-xl md:text-2xl font-semibold tracking-wide ${scrolled ? "text-primary" : "text-white drop-shadow-md"}`}>
               IDPMI
             </span>
-            <span className={`text-sm font-sans block -mt-1 ${scrolled ? "text-white/90" : "text-secondary"}`}>
+            <span className={`text-xs font-serif tracking-widest uppercase ${scrolled ? "text-secondary" : "text-secondary/90 drop-shadow-md"}`}>
               Región Nor-Centro
             </span>
-          </span>
+          </div>
         </Link>
         
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-6">
+        <div className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
             <Link
               key={item.name}
               to={item.path}
-              className={`font-display text-lg ${scrolled ? "text-white hover:text-white/80" : "text-primary hover:text-secondary"} 
-              transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 
-              after:bg-white hover:after:w-full after:transition-all after:duration-300`}
+              className={`font-sans text-sm uppercase tracking-wider ${
+                scrolled 
+                  ? "text-primary hover:text-secondary" 
+                  : "text-white hover:text-secondary/90"
+              } 
+              transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 
+              after:bg-secondary hover:after:w-full after:transition-all after:duration-300`}
             >
               {item.name}
             </Link>
@@ -73,7 +77,7 @@ const Navbar = () => {
 
         {/* Mobile Menu Button */}
         <button
-          className={`md:hidden ${scrolled ? "text-white" : "text-primary"} focus:outline-none`}
+          className={`md:hidden ${scrolled ? "text-primary" : "text-white"} focus:outline-none`}
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? (
@@ -85,13 +89,13 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="absolute top-full left-0 right-0 bg-gradient-to-br from-primary to-secondary text-white shadow-lg py-4 px-6 md:hidden animate-fade-in-down">
+          <div className="absolute top-full left-0 right-0 bg-white text-primary shadow-md py-6 px-6 md:hidden animate-fade-in-down">
             <div className="flex flex-col space-y-4">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
                   to={item.path}
-                  className="font-display text-lg text-white hover:text-white/80 transition-colors"
+                  className="font-sans text-sm uppercase tracking-wider text-primary hover:text-secondary transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.name}

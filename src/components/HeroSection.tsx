@@ -9,34 +9,38 @@ const HeroSection = () => {
       {/* Background with overlay */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-0 left-0 w-full h-full bg-[url('https://images.unsplash.com/photo-1470813740244-df37b8c1edcb')] bg-cover bg-center opacity-40"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/60 to-secondary/80"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/90 via-primary/70 to-primary/90"></div>
       </div>
 
       {/* Content */}
       <div className="container relative z-10 flex flex-col items-center text-center py-20">
-        <div className="mb-6 flex items-center justify-center">
-          <div className="w-20 h-20 md:w-28 md:h-28 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
-            <Church size={48} className="text-white" strokeWidth={1.5} />
+        <div className="mb-10 flex items-center justify-center">
+          <div className="w-20 h-20 md:w-24 md:h-24 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/20">
+            <Church size={40} className="text-white" strokeWidth={1.5} />
           </div>
         </div>
 
-        <div className="space-y-6 max-w-4xl animate-fade-in">
+        <div className="space-y-8 max-w-4xl">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white font-serif leading-tight drop-shadow-lg">
-            Iglesia de Dios <span className="text-amber-300 font-display">Pentecostal</span>
+            Iglesia de Dios <span className="text-secondary font-display">Pentecostal</span>
           </h1>
 
-          <h2 className="text-3xl md:text-4xl text-white/90 font-light leading-tight font-display">
-            Movimiento Internacional
-          </h2>
+          <div className="flex flex-col items-center space-y-6">
+            <h2 className="text-2xl md:text-3xl text-white font-serif italic leading-relaxed">
+              Movimiento Internacional
+            </h2>
 
-          <p className="text-xl text-white/80 max-w-2xl mx-auto font-serif">
-            Más de 100,000 cristianos gritándole al mundo que mientras haya vida, hay esperanza.
-          </p>
+            <div className="h-0.5 w-20 bg-secondary my-4"></div>
 
-          <div className="flex flex-wrap justify-center gap-4 mt-8">
+            <p className="text-xl text-white/90 max-w-2xl mx-auto font-serif">
+              Más de 100,000 cristianos gritándole al mundo que mientras haya vida, hay esperanza.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-6 mt-10">
             <Button 
               asChild
-              className="bg-amber-500 hover:bg-amber-600 text-white rounded-full px-8 py-6 text-lg shadow-lg hover:shadow-amber-500/30 transition-all duration-300 border-2 border-amber-400"
+              className="bg-secondary hover:bg-secondary-dark text-white rounded-sm px-8 py-7 text-sm uppercase tracking-wider font-medium shadow-lg hover:shadow-secondary/20 transition-all duration-300 border border-secondary-light"
             >
               <a href="/quienes-somos">Conócenos</a>
             </Button>
@@ -44,7 +48,7 @@ const HeroSection = () => {
             <Button 
               variant="outline"
               asChild
-              className="bg-white/10 backdrop-blur-sm hover:bg-white/20 border-2 border-white/80 text-white hover:text-white rounded-full px-8 py-6 text-lg shadow-lg transition-all duration-300"
+              className="bg-transparent hover:bg-white/10 border border-white text-white hover:text-white rounded-sm px-8 py-7 text-sm uppercase tracking-wider font-medium shadow-lg transition-all duration-300"
             >
               <a href="/iglesias">Nuestras Iglesias</a>
             </Button>

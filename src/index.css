@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Poppins:wght@300;400;500;600;700&family=Great+Vibes&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Cinzel:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -8,34 +8,34 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 220 38% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 220 38% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 220 38% 15%;
 
-    --primary: 255 60% 47%;
+    --primary: 220 54% 20%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 35 100% 36%;
+    --secondary: 43 74% 49%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 220 13% 95%;
+    --muted-foreground: 220 20% 40%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 220 13% 95%;
+    --accent-foreground: 220 38% 15%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 220 13% 85%;
+    --input: 220 13% 85%;
+    --ring: 220 54% 20%;
 
-    --radius: 0.5rem;
+    --radius: 0.375rem;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -85,30 +85,33 @@
 
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
   }
   
   h1, h2, h3, h4, h5, h6 {
     @apply font-serif;
+    letter-spacing: 0.02em;
   }
   
   h1 {
-    @apply text-4xl md:text-5xl lg:text-6xl font-bold;
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold leading-tight;
   }
   
   h2 {
-    @apply text-3xl md:text-4xl lg:text-5xl font-semibold;
+    @apply text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight;
   }
   
   h3 {
-    @apply text-2xl md:text-3xl font-semibold;
+    @apply text-2xl md:text-3xl font-semibold leading-tight;
   }
   
   h4 {
-    @apply text-xl md:text-2xl font-semibold;
+    @apply text-xl md:text-2xl font-semibold leading-snug;
   }
   
   p {
-    @apply leading-relaxed;
+    @apply leading-relaxed tracking-wide;
+    letter-spacing: 0.01em;
   }
 }
 
@@ -118,27 +121,27 @@
   }
   
   .section-padding {
-    @apply py-12 md:py-20 px-4 md:px-8 lg:px-16;
+    @apply py-16 md:py-24 px-4 md:px-8 lg:px-16;
   }
   
   .hover-scale {
-    @apply transition-transform duration-300 ease-in-out hover:scale-105;
+    @apply transition-transform duration-300 ease-in-out hover:scale-102;
   }
   
   .card-fancy {
-    @apply relative overflow-hidden rounded-lg p-6 bg-white shadow-xl border border-gray-100;
+    @apply relative overflow-hidden rounded-md p-6 bg-white shadow-md border border-gray-100;
   }
   
   .card-fancy::before {
-    @apply content-[''] absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-secondary;
+    @apply content-[''] absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-primary to-secondary;
   }
   
   .card-fancy:hover {
-    @apply shadow-2xl transform -translate-y-1 transition-all duration-300;
+    @apply shadow-lg transform -translate-y-0.5 transition-all duration-300;
   }
   
   .btn-fancy {
-    @apply inline-flex items-center justify-center px-6 py-3 rounded-full bg-gradient-to-r from-primary to-secondary text-white font-medium transition-all duration-300 shadow-md hover:shadow-lg hover:from-primary-dark hover:to-secondary-dark;
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-sm bg-primary text-white font-medium transition-all duration-300 shadow-md hover:shadow-lg hover:bg-primary/90;
   }
   
   .heading-underline {
@@ -146,7 +149,7 @@
   }
   
   .heading-underline::after {
-    @apply content-[''] absolute bottom-0 left-0 h-1 w-20 bg-gradient-to-r from-primary to-secondary;
+    @apply content-[''] absolute bottom-0 left-0 h-0.5 w-20 bg-secondary;
   }
   
   .heading-underline-center::after {
@@ -158,14 +161,14 @@
   }
   
   .glass-card {
-    @apply bg-white/80 backdrop-blur-md shadow-lg border border-gray-100 rounded-lg;
+    @apply bg-white/90 backdrop-blur-md shadow-md border border-gray-100 rounded-md;
   }
   
   .gradient-border {
-    @apply relative p-[1px] rounded-lg bg-gradient-to-r from-primary via-purple-400 to-secondary;
+    @apply relative p-px rounded-md bg-gradient-to-r from-primary via-secondary to-primary;
   }
   
   .gradient-border > div {
-    @apply bg-white rounded-lg p-6;
+    @apply bg-white rounded-md p-6;
   }
 }

@@ -20,9 +20,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Poppins', 'sans-serif'],
-        serif: ['Playfair Display', 'serif'],
-        display: ['Great Vibes', 'cursive'],
+        sans: ['Montserrat', 'sans-serif'],
+        serif: ['Cormorant Garamond', 'serif'],
+        display: ['Cinzel', 'serif'],
       },
       colors: {
         border: 'hsl(var(--border))',
@@ -31,19 +31,19 @@ export default {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         primary: {
-          DEFAULT: '#6047AA',
-          light: '#8972BF',
-          dark: '#4A378D'
+          DEFAULT: '#1A365D',
+          light: '#2D518F',
+          dark: '#0F2742'
         },
         secondary: {
-          DEFAULT: '#B76E00',
-          light: '#E08700',
-          dark: '#8F5500'
+          DEFAULT: '#D4AF37',
+          light: '#E6C65A',
+          dark: '#B39329'
         },
         accent: {
-          DEFAULT: '#34A853',
-          light: '#4ADE80',
-          dark: '#166534'
+          DEFAULT: '#8E2DE2',
+          light: '#A665E8',
+          dark: '#6B20AE'
         },
         destructive: {
           DEFAULT: 'hsl(var(--destructive))',
@@ -76,6 +76,9 @@ export default {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)'
+      },
+      scale: {
+        '102': '1.02',
       },
       keyframes: {
         'accordion-down': {
@@ -125,7 +128,7 @@ export default {
             transform: 'translateY(0)'
           },
           '50%': {
-            transform: 'translateY(-10px)'
+            transform: 'translateY(-5px)'
           }
         },
         'pulse-slow': {
@@ -133,14 +136,14 @@ export default {
             opacity: 1
           },
           '50%': {
-            opacity: 0.8
+            opacity: 0.9
           }
         }
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
-        'fade-in-down': 'fade-in-down 0.5s ease-out forwards',
+        'fade-in-down': 'fade-in-down 0.7s ease-out forwards',
         'fade-in': 'fade-in 0.5s ease-out forwards',
         'slide-in': 'slide-in 0.5s ease-out forwards',
         'float': 'float 6s ease-in-out infinite',
