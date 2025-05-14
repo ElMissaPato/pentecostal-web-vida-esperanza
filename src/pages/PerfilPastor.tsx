@@ -5,8 +5,9 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, Phone, Mail, MapPin } from "lucide-react";
+import { ChevronLeft, Phone, Mail, MapPin, Home, Award } from "lucide-react";
 import { pastores } from "../data/pastores";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const PerfilPastor = () => {
   const { id } = useParams<{ id: string }>();
@@ -59,7 +60,7 @@ const PerfilPastor = () => {
   }
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-gray-50">
       <Navbar />
       <main className="flex-grow pt-24 pb-16">
         <div className="container max-w-4xl mx-auto px-4">
@@ -70,93 +71,89 @@ const PerfilPastor = () => {
             </Button>
           </Link>
 
-          <Card className="overflow-hidden mb-8">
-            <div className="h-2 bg-gradient-to-r from-primary to-secondary"></div>
-            <CardContent className="p-6">
+          {/* Tarjeta de presentación mejorada */}
+          <Card className="overflow-hidden mb-8 border-none shadow-lg">
+            <div className="bg-gradient-to-r from-primary to-primary-dark p-8 text-white">
               <div className="flex flex-col md:flex-row gap-6 items-center md:items-start">
-                <div className="w-32 h-32 rounded-full overflow-hidden bg-gray-200 flex-shrink-0 border-4 border-white shadow-md">
-                  {pastor.foto ? (
-                    <img src={pastor.foto} alt={pastor.nombre} className="w-full h-full object-cover" />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center bg-primary/10 text-primary text-2xl font-serif">
-                      {pastor.nombre.split(' ').map(name => name[0]).join('')}
+                <div className="relative">
+                  <div className="w-32 h-32 md:w-36 md:h-36 rounded-full overflow-hidden bg-white border-4 border-white shadow-lg">
+                    {pastor.foto ? (
+                      <img src={pastor.foto} alt={pastor.nombre} className="w-full h-full object-cover" />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center bg-primary/20 text-white text-3xl font-serif">
+                        {pastor.nombre.split(' ').map(name => name[0]).join('').substring(0, 2)}
+                      </div>
+                    )}
+                  </div>
+                  <div className="absolute -bottom-2 -right-2 bg-secondary text-white text-sm px-2 py-1 rounded-full shadow-md">
+                    <div className="flex items-center">
+                      <Award className="w-3 h-3 mr-1" />
+                      <span>Grado {pastor.grado}</span>
                     </div>
-                  )}
+                  </div>
                 </div>
                 
                 <div className="text-center md:text-left">
-                  <h1 className="text-3xl font-serif text-primary mb-2">{pastor.nombre}</h1>
-                  <p className="text-secondary font-medium mb-3">Grado: {pastor.grado}</p>
-                  <p className="text-gray-700">{pastor.distrito}</p>
+                  <h1 className="text-3xl font-serif mb-2">{pastor.nombre}</h1>
+                  <p className="text-white/80 font-medium mb-2">{pastor.distrito}</p>
+                  
+                  {/* Iglesias integradas */}
+                  <div className="mt-3">
+                    {pastor.iglesias.map((iglesia, i) => (
+                      <div key={i} className="flex items-center text-white/90 mb-1">
+                        <Home className="w-4 h-4 mr-2 flex-shrink-0" />
+                        <span className="font-medium">{iglesia.nombre}</span>
+                        <span className="text-white/70 text-sm mx-2">•</span>
+                        <span className="text-white/70 text-sm">{iglesia.tipo}</span>
+                        <span className="text-white/70 text-sm mx-2">•</span>
+                        <span className="text-white/70 text-sm truncate">{iglesia.ubicacion}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
+              </div>
+            </div>
+
+            <CardContent className="p-6 bg-white">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {pastor.contacto.telefono && (
+                  <div className="flex items-center gap-3">
+                    <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                      <Phone className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-gray-600">Teléfono</p>
+                      <p className="font-medium">{pastor.contacto.telefono}</p>
+                    </div>
+                  </div>
+                )}
+
+                {pastor.contacto.correo && (
+                  <div className="flex items-center gap-3">
+                    <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                      <Mail className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-gray-600">Correo</p>
+                      <p className="font-medium">{pastor.contacto.correo}</p>
+                    </div>
+                  </div>
+                )}
+
+                {pastor.contacto.direccionCasa && (
+                  <div className="flex items-center gap-3">
+                    <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                      <MapPin className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-gray-600">Dirección</p>
+                      <p className="font-medium">{pastor.contacto.direccionCasa}</p>
+                    </div>
+                  </div>
+                )}
               </div>
             </CardContent>
           </Card>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            {pastor.contacto.telefono && (
-              <Card>
-                <CardContent className="p-4 flex items-center gap-3">
-                  <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                    <Phone className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-600">Teléfono</p>
-                    <p className="font-medium">{pastor.contacto.telefono}</p>
-                  </div>
-                </CardContent>
-              </Card>
-            )}
-
-            {pastor.contacto.correo && (
-              <Card>
-                <CardContent className="p-4 flex items-center gap-3">
-                  <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                    <Mail className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-600">Correo</p>
-                    <p className="font-medium">{pastor.contacto.correo}</p>
-                  </div>
-                </CardContent>
-              </Card>
-            )}
-
-            {pastor.contacto.direccionCasa && (
-              <Card>
-                <CardContent className="p-4 flex items-center gap-3">
-                  <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                    <MapPin className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-600">Dirección</p>
-                    <p className="font-medium">{pastor.contacto.direccionCasa}</p>
-                  </div>
-                </CardContent>
-              </Card>
-            )}
-          </div>
-
-          <h2 className="text-2xl font-serif text-primary mb-4">Iglesias</h2>
-          <div className="space-y-4 mb-8">
-            {pastor.iglesias.map((iglesia, index) => (
-              <Card key={index}>
-                <CardContent className="p-5">
-                  <div className="flex flex-col md:flex-row md:justify-between md:items-center">
-                    <div>
-                      <h3 className="font-medium text-lg">{iglesia.nombre}</h3>
-                      <p className="text-gray-600 text-sm">{iglesia.tipo}</p>
-                    </div>
-                    <div className="mt-2 md:mt-0">
-                      <span className="inline-block bg-gray-100 px-3 py-1 rounded-full text-sm">
-                        {iglesia.ubicacion}
-                      </span>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
 
           {pastor.biografia && (
             <div className="mb-8">
