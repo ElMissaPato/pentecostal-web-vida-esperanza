@@ -88,16 +88,6 @@ const PerfilPastor = () => {
                   <h1 className="text-3xl font-serif text-primary mb-2">{pastor.nombre}</h1>
                   <p className="text-secondary font-medium mb-3">Grado: {pastor.grado}</p>
                   <p className="text-gray-700">{pastor.distrito}</p>
-                  
-                  {pastor.conyuge && (
-                    <div className="mt-4 bg-gray-50 p-3 rounded-md">
-                      <span className="text-gray-600">Cónyuge:</span>
-                      <p className="font-medium">{pastor.conyuge.nombre}</p>
-                      {pastor.conyuge.grado && (
-                        <p className="text-sm text-gray-600">Grado: {pastor.conyuge.grado}</p>
-                      )}
-                    </div>
-                  )}
                 </div>
               </div>
             </CardContent>

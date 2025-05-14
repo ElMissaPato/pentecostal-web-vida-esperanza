@@ -17,10 +17,6 @@ export interface Pastor {
     correo?: string;
     direccionCasa?: string;
   };
-  conyuge?: {
-    nombre: string;
-    grado?: string;
-  };
   biografia?: string;
   foto?: string;
 }
@@ -140,7 +136,6 @@ export const pastores: Pastor[] = [
       direccionCasa: ""
     }
   },
-
   // DISTRITO JUAREZ CHIH.
   {
     id: "angel-garibay",
@@ -196,7 +191,6 @@ export const pastores: Pastor[] = [
       direccionCasa: ""
     }
   },
-
   // DISTRITO CHIHUAHUA CHIH.
   {
     id: "jesus-arturo-perez",
@@ -232,10 +226,24 @@ export const pastores: Pastor[] = [
       telefono: "",
       correo: "",
       direccionCasa: ""
-    },
-    conyuge: {
-      nombre: "Ana Patricia Venzor Coronado",
-      grado: "2"
+    }
+  },
+  {
+    id: "ana-patricia-venzor",
+    nombre: "Ana Patricia Venzor Coronado",
+    grado: "2",
+    iglesias: [
+      {
+        nombre: "La Verdad",
+        tipo: "Iglesia Organizada",
+        ubicacion: "c.5ª # 911 Col. Villa Juárez Chihuahua"
+      }
+    ],
+    distrito: "DISTRITO CHIHUAHUA CHIH.",
+    contacto: {
+      telefono: "",
+      correo: "",
+      direccionCasa: ""
     }
   },
   {
@@ -254,13 +262,100 @@ export const pastores: Pastor[] = [
       telefono: "",
       correo: "",
       direccionCasa: ""
-    },
-    conyuge: {
-      nombre: "María Cecilia Días Contreras",
-      grado: "3"
+    }
+  },
+  {
+    id: "maria-cecilia-dias",
+    nombre: "María Cecilia Días Contreras",
+    grado: "3",
+    iglesias: [
+      {
+        nombre: "Betania",
+        tipo: "Iglesia Organizada",
+        ubicacion: "c.43 # 15711 Col. Nuevo Triunfo Chihuahua"
+      }
+    ],
+    distrito: "DISTRITO CHIHUAHUA CHIH.",
+    contacto: {
+      telefono: "",
+      correo: "",
+      direccionCasa: ""
+    }
+  },
+  // Agregamos los ministros según la imagen compartida
+  {
+    id: "marcelo-martinez",
+    nombre: "Marcelo Martínez",
+    grado: "Ordenado",
+    iglesias: [
+      {
+        nombre: "Manantial de vida",
+        tipo: "Iglesia Organizada",
+        ubicacion: "Puerto del Toro Saucillo Chihuahua"
+      }
+    ],
+    distrito: "DISTRITO DELICIAS SAUCILLO.",
+    contacto: {
+      telefono: "",
+      correo: "",
+      direccionCasa: ""
+    }
+  },
+  {
+    id: "karen-reyes",
+    nombre: "Karen Guadalupe Reyes Gutiérrez",
+    grado: "3",
+    iglesias: [
+      {
+        nombre: "Jesucristo es nuestro refugio",
+        tipo: "Misión",
+        ubicacion: "c. Calixto Contreras #14 col. Lucio Cabañas"
+      }
+    ],
+    distrito: "DISTRITO DURANGO.",
+    contacto: {
+      telefono: "",
+      correo: "",
+      direccionCasa: ""
+    }
+  },
+  {
+    id: "lorenza-arana",
+    nombre: "Lorenza Arana Erives",
+    grado: "3",
+    iglesias: [
+      {
+        nombre: "Betania",
+        tipo: "Iglesia Organizada",
+        ubicacion: "c.43 # 15711 Col. Nuevo Triunfo Chihuahua"
+      }
+    ],
+    distrito: "DISTRITO CHIHUAHUA CHIH.",
+    contacto: {
+      telefono: "",
+      correo: "",
+      direccionCasa: ""
+    }
+  },
+  {
+    id: "ricardo-rodriguez",
+    nombre: "Ricardo Noel Rodríguez Figueroa",
+    grado: "3",
+    iglesias: [
+      {
+        nombre: "Pueblo de Dios",
+        tipo: "Iglesia Organizada",
+        ubicacion: "Salome Canales #3 Col. Centro Juan Aldama Zac."
+      }
+    ],
+    distrito: "DISTRITO JUAN ALDAMA ZAC.",
+    contacto: {
+      telefono: "",
+      correo: "",
+      direccionCasa: ""
     }
   }
-  // Agregar más pastores conforme al documento...
+  // Aquí puedes seguir agregando más pastores según la imagen compartida
 ];
 
 export const obtenerPresbiteros = () => {
