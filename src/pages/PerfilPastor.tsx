@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, Phone, Mail, MapPin, Home, Award } from "lucide-react";
+import { ChevronLeft, Phone, Mail, MapPin, Home } from "lucide-react";
 import { pastores } from "../data/pastores";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
@@ -73,10 +73,10 @@ const PerfilPastor = () => {
 
           {/* Tarjeta de presentación mejorada */}
           <Card className="overflow-hidden mb-8 border-none shadow-lg">
-            <div className="bg-gradient-to-r from-primary to-primary-dark p-8 text-white">
+            <div className="bg-gradient-to-r from-primary to-primary-dark p-6 text-white">
               <div className="flex flex-col md:flex-row gap-6 items-center md:items-start">
                 <div className="relative">
-                  <div className="w-32 h-32 md:w-36 md:h-36 rounded-full overflow-hidden bg-white border-4 border-white shadow-lg">
+                  <div className="w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden bg-white border-4 border-white shadow-lg">
                     {pastor.foto ? (
                       <img src={pastor.foto} alt={pastor.nombre} className="w-full h-full object-cover" />
                     ) : (
@@ -85,31 +85,30 @@ const PerfilPastor = () => {
                       </div>
                     )}
                   </div>
-                  <div className="absolute -bottom-2 -right-2 bg-secondary text-white text-sm px-2 py-1 rounded-full shadow-md">
-                    <div className="flex items-center">
-                      <Award className="w-3 h-3 mr-1" />
-                      <span>Grado {pastor.grado}</span>
-                    </div>
+                  <div className="absolute -bottom-2 -right-2 bg-secondary text-white text-xs px-2 py-1 rounded-full shadow-md">
+                    <span>Grado {pastor.grado}</span>
                   </div>
                 </div>
                 
-                <div className="text-center md:text-left">
-                  <h1 className="text-3xl font-serif mb-2">{pastor.nombre}</h1>
-                  <p className="text-white/80 font-medium mb-2">{pastor.distrito}</p>
+                <div className="text-center md:text-left flex-grow">
+                  <h1 className="text-2xl md:text-3xl font-serif mb-2">{pastor.nombre}</h1>
+                  <p className="text-white/80 font-medium mb-4">{pastor.distrito}</p>
                   
-                  {/* Iglesias integradas */}
-                  <div className="mt-3">
-                    {pastor.iglesias.map((iglesia, i) => (
-                      <div key={i} className="flex items-center text-white/90 mb-1">
+                  {/* Iglesias integradas directamente */}
+                  {pastor.iglesias.map((iglesia, i) => (
+                    <div key={i} className="flex flex-col md:flex-row md:items-center text-white/90 mb-2">
+                      <div className="flex items-center">
                         <Home className="w-4 h-4 mr-2 flex-shrink-0" />
                         <span className="font-medium">{iglesia.nombre}</span>
-                        <span className="text-white/70 text-sm mx-2">•</span>
-                        <span className="text-white/70 text-sm">{iglesia.tipo}</span>
-                        <span className="text-white/70 text-sm mx-2">•</span>
-                        <span className="text-white/70 text-sm truncate">{iglesia.ubicacion}</span>
                       </div>
-                    ))}
-                  </div>
+                      <div className="flex flex-wrap items-center ml-0 md:ml-2">
+                        <span className="text-white/70 text-sm mx-0 md:mx-2 hidden md:inline">•</span>
+                        <span className="text-white/70 text-sm">{iglesia.tipo}</span>
+                        <span className="text-white/70 text-sm mx-0 md:mx-2 hidden md:inline">•</span>
+                        <span className="text-white/70 text-sm block md:inline mt-1 md:mt-0">{iglesia.ubicacion}</span>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
