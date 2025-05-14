@@ -259,9 +259,9 @@ export const pastores: Pastor[] = [
       nombre: "María Cecilia Días Contreras",
       grado: "3"
     }
-  },
+  }
   // Agregar más pastores conforme al documento...
-],
+];
 
 export const obtenerPresbiteros = () => {
   const presbiteros = [
